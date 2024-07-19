@@ -8,11 +8,11 @@ metadata:
 spec:
   type: {{ .Values.service.type }}
   ports:
-    - port: {{ .Values.openvpn.ports.tcp }}
+    - port: {{ .Values.openvpn.ports.tcp.containerPort }}
       targetPort: vpn-tcp
       protocol: TCP
       name: vpn-tcp
-      nodePort: {{ .Values.openvpn.ports.tcp }}
+      nodePort: {{ .Values.openvpn.ports.tcp.nodePort }}
   selector:
     {{- include "openvpn-as.selectorLabels" . | nindent 4 }}
 ---
@@ -27,11 +27,11 @@ metadata:
 spec:
   type: {{ .Values.service.type }}
   ports:
-    - port: {{ .Values.openvpn.ports.udp }}
+    - port: {{ .Values.openvpn.ports.udp.containerPort }}
       targetPort: vpn-udp
       protocol: UDP
       name: vpn-udp
-      nodePort: {{ .Values.openvpn.ports.udp }}
+      nodePort: {{ .Values.openvpn.ports.udp.nodePort }}
   selector:
     {{- include "openvpn-as.selectorLabels" . | nindent 4 }}
 {{- end }}

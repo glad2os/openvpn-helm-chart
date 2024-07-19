@@ -42,10 +42,10 @@ spec:
               containerPort: {{ .Values.openvpn.ports.gui }}
               protocol: TCP
             - name: vpn-tcp
-              containerPort: {{ .Values.openvpn.ports.tcp }}
+              containerPort: {{ .Values.openvpn.ports.tcp.containerPort }}
               protocol: TCP
             - name: vpn-udp
-              containerPort: {{ .Values.openvpn.ports.udp }}
+              containerPort: {{ .Values.openvpn.ports.udp.containerPort }}
               protocol: UDP
           livenessProbe:
             initialDelaySeconds: 100

@@ -74,8 +74,10 @@ The following tables list the configurable parameters of the openvpn-as chart an
 | openvpn.config | object | `{"vpn.client.routing.reroute_dns":"false","vpn.client.routing.reroute_gw":"false"}` | Config settings to apply to the openvpn-as server |
 | openvpn.ports.admin | int | `943` | Admin GUI port |
 | openvpn.ports.gui | int | `944` | Client GUI port |
-| openvpn.ports.tcp | int | `9443` | VPN TCP port |
-| openvpn.ports.udp | int | `1194` | VPN UDP port |
+| openvpn.ports.tcp.containerPort | int | `9443` | VPN TCP port |
+| openvpn.ports.udp.containerPort | int | `1194` | VPN UDP port |
+| openvpn.ports.tcp.nodePort | int | `32000` | VPN TCP port |
+| openvpn.ports.udp.nodePort | int | `32001` | VPN UDP port |
 | openvpn.timezone | string | `"Europe/London"` |  |
 | openvpn.users | list | `nil` | Additional users to create when non-existent `[{"user":"someuser","password":"somepassword"}]` |
 | persistence.accessMode | string | `"ReadWriteOnce"` | PVC Access Mode for volume |
