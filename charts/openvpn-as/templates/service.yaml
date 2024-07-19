@@ -12,6 +12,7 @@ spec:
       targetPort: vpn-tcp
       protocol: TCP
       name: vpn-tcp
+      nodePort: {{ .Values.openvpn.ports.tcp }}
   selector:
     {{- include "openvpn-as.selectorLabels" . | nindent 4 }}
 ---
@@ -30,6 +31,7 @@ spec:
       targetPort: vpn-udp
       protocol: UDP
       name: vpn-udp
+      nodePort: {{ .Values.openvpn.ports.udp }}
   selector:
     {{- include "openvpn-as.selectorLabels" . | nindent 4 }}
 {{- end }}
